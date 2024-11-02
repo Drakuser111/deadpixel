@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full Spectrum Color Cycle</title>
+    <style>
+        /* Full-screen black background */
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+
+<script>
+    let hue = 0;
+
+    function cycleColors() {
+        // Set the background color to the current hue in HSL color format
+        document.body.style.backgroundColor = `hsl(${hue}, 100%, 50%)`;
+        
+        // Increment the hue value
+        hue = (hue + 1) % 360;  // Reset to 0 after reaching 360 for a seamless loop
+
+        // Call cycleColors recursively with requestAnimationFrame for smooth animation
+        requestAnimationFrame(cycleColors);
+    }
+
+    // Start the color cycle
+    cycleColors();
+</script>
+
+</body>
+</html>
